@@ -45,9 +45,9 @@
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
       "inline": [
         "mkdir -p /tmp/packer-provisioner",
+        "chmod a+w /tmp/packer-provisioner",
         "ls -ltra /tmp"
       ]
     },
@@ -58,7 +58,6 @@
     },
     {
       "type": "shell",
-      "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
       "inline": [
         "/tmp/packer-provisioner/provision.sh"
       ]
