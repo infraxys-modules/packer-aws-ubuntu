@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eo pipefile;
+set -eo pipefail;
 
 function run_as_root() {
 
