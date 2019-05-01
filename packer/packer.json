@@ -1,0 +1,66 @@
+{
+  "variables": {
+    "ssh_username": "ubuntu",
+    "ami_name_prefix": "{{ env `ami_name_prefix` }}",
+    "ami_description": "{{env `ami_description`}}",
+    "provisioner_dir": "{{ env `provisioner_dir` }}",
+    "source_ami": "{{env `source_ami`}}",
+    "security_group_id": "{{env `security_group_id`}}",
+    "vpc_id": "{{env `vpc_id`}}",
+    "subnet_id": "{{env `subnet_id`}}",
+    "ami_users": "{{env `ami_users`}}",
+    "region": "{{ env `aws_region` }}",
+    "iam_instance_profile": "{{ env `iam_instance_profile` }}",
+    "associate_public_ip_address": "{{ env `associate_public_ip_address` }}"
+  },
+  "builders": [
+    {
+      "name": "{{ user `ami_name_prefix`}}",
+      "ami_name": "{{ user `ami_name_prefix`}}-{{timestamp}}",
+      "ami_description": "{{ user `ami_description` }}",
+      "type": "amazon-ebs",
+      "source_ami": "{{user `source_ami`}}",
+      "region": "{{ user `region` }}",
+      "instance_type": "t2.medium",
+      "associate_public_ip_address": "{{ user `associate_public_ip_address` }}",
+      "ssh_private_ip": true,
+      "iam_instance_profile": "{{ user `iam_instance_profile` }}",
+      "ssh_username": "{{ user `ssh_username`}}",
+      "security_group_id": "{{ user `security_group_id`}}",
+      "vpc_id": "{{ user `vpc_id`}}",
+      "subnet_id": "{{ user `subnet_id`}}",
+      "ami_users": "{{ user `ami_users`}}",
+      "ssh_timeout": "10m",
+      "run_tags": {
+        "Name": "Packer build - {{ user `ami_name_prefix`}}-{{timestamp}}"
+      },
+      "run_volume_tags": {
+        "Name": "Packer build - {{ user `ami_name_prefix`}}-{{timestamp}}"
+      },
+      "tags": {
+        "Name": "{{ user `ami_name_prefix`}}-{{timestamp}}"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "inline": [
+        "mkdir -p /tmp/packer-provisioner"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "{{user `provisioner_dir`}}/.",
+      "destination": "/tmp/packer-provisioner"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "inline": [
+        "sh /tmp/packer-provisioner/provision.sh"
+      ]
+    }
+  ]
+}
