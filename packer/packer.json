@@ -47,7 +47,8 @@
       "type": "shell",
       "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
       "inline": [
-        "mkdir -p /tmp/packer-provisioner"
+        "mkdir -p /tmp/packer-provisioner",
+        "ls -ltra /tmp"
       ]
     },
     {
@@ -59,7 +60,7 @@
       "type": "shell",
       "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
       "inline": [
-        "sh /tmp/packer-provisioner/provision.sh"
+        "/tmp/packer-provisioner/provision.sh"
       ]
     }
   ]
