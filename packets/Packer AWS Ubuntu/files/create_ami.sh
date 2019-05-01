@@ -1,2 +1,2 @@
-run_aws_packer --json_filename "$packer_json_filename" --ami_description "Ubuntu 18.04 AMI";
+run_aws_packer --packer_directory "$packer_directory" --ami_description "Ubuntu 18.04 AMI";
 
