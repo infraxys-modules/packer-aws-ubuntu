@@ -53,7 +53,7 @@
     {
       "type": "file",
       "source": "{{user `provisioner_dir`}}/",
-      "destination": "/tmp/packer-provisioner"
+      "destination": "/tmp/packer-provisioner/"
     },
     {
       "type": "shell",
