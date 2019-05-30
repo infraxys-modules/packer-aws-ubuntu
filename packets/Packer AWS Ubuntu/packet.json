@@ -139,7 +139,7 @@
       "runsIndependent": false,
       "runsParallel": false,
       "runBeforeIndependentActions": false,
-      "parseWithVelocity": false,
+      "parseWithVelocity": true,
       "executable": true,
       "saveWith": "CURRENT INSTANCE",
       "isInteractive": false,
