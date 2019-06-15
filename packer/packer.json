@@ -7,7 +7,8 @@
     "encrypt_boot": "{{ env `encrypt_boot` }}",
     "ami_name_prefix": "{{ env `ami_name_prefix` }}",
     "ami_description": "{{env `ami_description`}}",
-    "provisioner_dir": "{{ env `provisioner_dir` }}",
+    "packer_tmp_dir": "{{ env `packer_tmp_dir` }}",
+    "packer_target_dir": "{{ env `packer_target_dir` }}",
     "source_ami": "{{env `source_ami`}}",
     "security_group_id": "{{env `security_group_id`}}",
     "vpc_id": "{{env `vpc_id`}}",
@@ -55,22 +56,22 @@
     {
       "type": "shell",
       "inline": [
-        "mkdir -p /tmp/packer-provisioner",
-        "chmod a+w /tmp/packer-provisioner",
+        "mkdir -p {{user `packer_target_dir`}}",
+        "chmod a+w {{user `packer_target_dir`}}"
       ]
     },
     {
       "type": "file",
-      "source": "{{user `provisioner_dir`}}/",
-      "destination": "/tmp/packer-provisioner/"
+      "source": "{{user `packer_tmp_dir`}}/",
+      "destination": "{{user `packer_target_dir`}}"
     },
     {
       "type": "shell",
       "inline": [
         "ls -ltra /tmp",
         "echo contents:",
-        "ls -ltra /tmp/packer-provisioner",
-        "/tmp/packer-provisioner/provision.sh"
+        "ls -ltra {{user `packer_target_dir`}}",
+        "{{user `packer_target_dir`}}/provision.sh"
       ]
     }
   ]
