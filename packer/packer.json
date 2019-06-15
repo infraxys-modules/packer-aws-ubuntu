@@ -68,6 +68,9 @@
     {
       "type": "shell",
       "inline": [
+        "ls -ltra /tmp",
+        "echo contents:",
+        "ls -ltra /tmp/packer-provisioner",
         "/tmp/packer-provisioner/provision.sh"
       ]
     }
