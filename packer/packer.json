@@ -57,7 +57,8 @@
       "inline": [
         "mkdir -p /tmp/packer-provisioner",
         "chmod a+w /tmp/packer-provisioner",
-        "ls -ltra /tmp"
+        "ls -ltra /tmp",
+        "echo next"
       ]
     },
     {
