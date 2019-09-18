@@ -2,7 +2,7 @@
   "variables": {
     "ssh_username": "ubuntu",
     "ssh_bastion_host": "{{ env `ssh_bastion_host` }}",
-    "ssh_bastion_private_key_file": "{{ env `bastion_private_key_file` }}",
+    "ssh_bastion_private_key_file": "{{ env `ssh_bastion_private_key_file` }}",
     "ssh_bastion_username": "{{ env `ssh_bastion_username` }}",
     "encrypt_boot": "{{ env `encrypt_boot` }}",
     "ami_name_prefix": "{{ env `ami_name_prefix` }}",

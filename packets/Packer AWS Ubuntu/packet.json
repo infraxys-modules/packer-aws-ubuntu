@@ -10,26 +10,6 @@
   "infoHtml": "",
   "attributes": [
     {
-      "name": "ami_name_prefix",
-      "caption": "AMI name prefix",
-      "type": "java.lang.String",
-      "formColumn": 1,
-      "formOrder": 1100,
-      "visibility": "ALWAYS VISIBLE",
-      "writability": "ALWAYS",
-      "required": true,
-      "isPartOfKey": false,
-      "listOfValues": "",
-      "newItemsAllowed": false,
-      "parseWithVelocity": true,
-      "cloneAttribute": true,
-      "autoExport": true,
-      "inputPrompt": "",
-      "tooltip": "A Dash and the Unix time (epoch) will be appended for the final name of the ami",
-      "scope": "Instance",
-      "defaultValue": ""
-    },
-    {
       "name": "ami_description",
       "caption": "AMI description",
       "type": "java.lang.String",
@@ -48,6 +28,26 @@
       "tooltip": "A Dash and the Unix time (epoch) will be appended for the final name of the ami",
       "scope": "Instance",
       "defaultValue": "Docker 18.06 on Ubuntu 18.04 AMI"
+    },
+    {
+      "name": "ami_name_prefix",
+      "caption": "AMI name prefix",
+      "type": "java.lang.String",
+      "formColumn": 1,
+      "formOrder": 1100,
+      "visibility": "ALWAYS VISIBLE",
+      "writability": "ALWAYS",
+      "required": true,
+      "isPartOfKey": false,
+      "listOfValues": "",
+      "newItemsAllowed": false,
+      "parseWithVelocity": true,
+      "cloneAttribute": true,
+      "autoExport": true,
+      "inputPrompt": "",
+      "tooltip": "A Dash and the Unix time (epoch) will be appended for the final name of the ami",
+      "scope": "Instance",
+      "defaultValue": ""
     },
     {
       "name": "associate_public_ip_address",
