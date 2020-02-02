@@ -156,6 +156,7 @@
   ],
   "files": [
     {
+      "guid": "9f0a1892-9a36-424e-a286-8eeace4df078",
       "filename": "create_ami.sh",
       "includeName": "Create AMI",
       "menuCaption": "Create AMI",

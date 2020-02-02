@@ -1,7 +1,7 @@
 {
   "dependencies": [
     {
-      "git_url": "git@github.com:infraxys-modules/packer-aws.git",
+      "git_url": "git@github.com:infraxys-aws/aws-packer.git",
       "branch": "master"
     }
   ]
